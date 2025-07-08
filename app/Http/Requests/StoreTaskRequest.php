@@ -36,6 +36,7 @@ class StoreTaskRequest extends FormRequest
      * @param \Illuminate\Contracts\Validation\Validator $validator
      * @throws \Illuminate\Http\Exceptions\HttpResponseException
      */
+    
     public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
     {
         throw new \Illuminate\Http\Exceptions\HttpResponseException(response()->json([

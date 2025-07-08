@@ -39,7 +39,7 @@ class CategoryController extends Controller
         return response()->json([
 
             'status' => 201,
-            'message' => 'Categoría creada correctamente',
+            'message' => 'Categoría creada correctamente.',
             'data' => $category
 
         ], 201);
@@ -86,7 +86,7 @@ class CategoryController extends Controller
         return response()->json([
 
             'status' => 200,
-            'message' => 'Categoría actualizada correctamente',
+            'message' => 'Categoría actualizada correctamente.',
             'data' => $category
 
         ], 200);
