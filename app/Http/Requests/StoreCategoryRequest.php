@@ -28,6 +28,13 @@ class StoreCategoryRequest extends FormRequest
         ];
     }
 
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param \Illuminate\Contracts\Validation\Validator $validator
+     * @throws \Illuminate\Http\Exceptions\HttpResponseException
+     */
+    
     public function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json([
