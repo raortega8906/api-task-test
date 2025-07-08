@@ -21,14 +21,12 @@ class UpdateCategoryRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-
     public function rules(): array
     {
         return [
             'name' => 'string|unique:categories'
         ];
     }
-
 
     /**
      * Handle a failed validation attempt.

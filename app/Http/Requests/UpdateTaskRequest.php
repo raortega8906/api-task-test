@@ -11,7 +11,7 @@ class UpdateTaskRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,7 +28,6 @@ class UpdateTaskRequest extends FormRequest
             'category_id' => 'required|exists:categories,id',
             'user_id' => 'required|exists:users,id',
         ];
-
     }
 
     /**
@@ -37,6 +36,7 @@ class UpdateTaskRequest extends FormRequest
      * @param \Illuminate\Contracts\Validation\Validator $validator
      * @throws \Illuminate\Http\Exceptions\HttpResponseException
      */
+
     public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
     {
         throw new \Illuminate\Http\Exceptions\HttpResponseException(response()->json([
@@ -45,11 +45,7 @@ class UpdateTaskRequest extends FormRequest
             'errors' => $validator->errors()
         ], 422));
     }
-    /**
-     * Get the custom error messages for the validation rules.
-     *
-     * @return array<string, string>
-     */
+
     public function messages(): array
     {
         return [
