@@ -15,8 +15,11 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!auth()->check() || !auth()->user()->is_admin) {
-            return abort(404);
+        if (!$request->user() || !$request->user()->is_admin) {
+            return response()->json([
+                'status' => 403,
+                'message' => 'Acceso denegado. Solo los administradores pueden realizar esta acción.'
+            ], 403);
         }
         return $next($request);
     }
