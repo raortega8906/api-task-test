@@ -9,7 +9,7 @@ Route::get('/', function () {
     return 'Hello API TASK';
 })->name('api');
 
-// Auth Routes
+// Auth Routes Public
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -17,7 +17,7 @@ Route::post('/login', [AuthController::class, 'login']);
 // Middleware to protect routes
 Route::middleware(['auth:api', 'is_admin'])->group(function () {
 
-    // Logout Route
+    // Auth Routes
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/me', [AuthController::class, 'me']);
